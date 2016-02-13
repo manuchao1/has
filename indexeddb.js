@@ -165,7 +165,7 @@ IndexedDatabase.prototype = {
 
 			var req = object_store.get(parseInt(id));
 			req.onerror = function(e) {
-				console.error('did not find customer with id', parseInt(id));
+				console.error('error while finding customer with id', parseInt(id));
 				reject();
 				log_error(e);
 			};
@@ -174,6 +174,7 @@ IndexedDatabase.prototype = {
 				if (c) {
 					resolve(convert.customer(c));
 				} else {
+					console.error('there is no customer with id', parseInt(id));
 					reject();
 				}
 			};
