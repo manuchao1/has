@@ -20,6 +20,7 @@ SettingsForm.prototype = {
 			'phone',
 			'fax',
 			'email',
+			'greeting',
 			'signature',
 			'retour_address',
 			'bank',
