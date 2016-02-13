@@ -28,7 +28,7 @@ create_storage().then(function(storage) {
 			Promise.all(promises).then(function() {
 				var promises = items.map(function(i) {
 					if (i.versteckt == 0) {
-						var item = new Item(i.id, i.ziffer, i.beschreibung, i.preis);
+						var item = new Item(i.id, i.ziffer, i.beschreibung, (i.preis*100)|0);
 						console.log('creating item', i.id);
 						return storage.create_item(item);
 					}
