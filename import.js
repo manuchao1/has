@@ -27,7 +27,7 @@ create_storage().then(function(storage) {
 				}
 				var customer = new Customer(c.id, c.vorname, c.nachname, gender, c.strasse, c.plz, c.ort);
 				console.log('creating customer', c.id);
-				return storage.create_customer(customer);
+				return storage.save_customer(customer);
 			});
 			Promise.all(promises).then(function() {
 				var promises = items.map(function(i) {
@@ -48,9 +48,9 @@ create_storage().then(function(storage) {
 								price: (i.preis*100)|0,
 							};
 						});
-						var bill = new Bill(undefined, b.patient-1, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
+						var bill = new Bill(b.id, b.patient, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
 						console.log(bill);
-						storage.create_bill(bill);
+						storage.save_bill(bill);
 					});
 				});
 			})
