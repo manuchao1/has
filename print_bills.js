@@ -13,6 +13,8 @@ var tex_escape = function(str) {
 		console.log(str);
 		return str.replace(/\n/g, '\\\\')
 			.replace('€', '\\euro');
+			.replace('·', '\\textperiodcentered');
+
 	}
 }
 
