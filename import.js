@@ -50,6 +50,7 @@ create_storage().then(function(storage) {
 							};
 						});
 						var bill = new Bill(undefined, b.patient, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
+						console.log(bill);
 						storage.create_bill(bill);
 //function Bill(id, customer_id, subject, date, correspondence, is_printed, is_paid, positions) {
 					});

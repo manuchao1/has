@@ -20,6 +20,7 @@ var cursor_to_bills = function(resolve, reject, transaction, indexed_db) {
 
 	return function(ev) {
 		var cursor = ev.target.result;
+		console.log(cursor);
 
 		if (cursor) {
 			var b = convert.bill(cursor.value);
@@ -213,15 +214,13 @@ IndexedDatabase.prototype = {
 			var bill_store = transaction.objectStore('bills');
 			var customer_store = transaction.objectStore('customers');
 
-			var bill_list = [];
-			var get_customer_promise_list = [];
-
 			var req = bill_store.openCursor();
 			req.onerror = function(e) {
 				reject();
 				log_error(e);
 			};
-			req.onsuccess = cursor_to_bills(resolve, reject, transaction, self);		});
+			req.onsuccess = cursor_to_bills(resolve, reject, transaction, self);
+		});
 	},
 
 
@@ -232,9 +231,6 @@ IndexedDatabase.prototype = {
 		return new Promise(function (resolve, reject) {
 			var transaction = db.transaction(['bills', 'customers'], 'readonly');
 			var bill_store = transaction.objectStore('bills');
-
-			var bill_list = [];
-			var get_customer_promise_list = [];
 
 			var req = bill_store.index('is_printed').openCursor(IDBKeyRange.only(0));
 			req.onsuccess = cursor_to_bills(resolve, reject, transaction, self);
