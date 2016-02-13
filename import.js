@@ -30,14 +30,13 @@ create_storage().then(function(storage) {
 				return storage.create_customer(customer);
 			});
 			Promise.all(promises).then(function() {
-				/*var promises = items.map(function(i) {
+				var promises = items.map(function(i) {
 					if (i.versteckt == 0) {
 						var item = new Item(i.id, i.ziffer, i.beschreibung, (i.preis*100)|0);
 						console.log('creating item', i.id);
 						return storage.create_item(item);
 					}
-				});*/
-				promises = [];
+				});
 				
 				Promise.all(promises).then(function() {
 					var promises = bills.map(function(b) {
@@ -49,10 +48,9 @@ create_storage().then(function(storage) {
 								price: (i.preis*100)|0,
 							};
 						});
-						var bill = new Bill(undefined, b.patient, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
+						var bill = new Bill(undefined, b.patient-1, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
 						console.log(bill);
 						storage.create_bill(bill);
-//function Bill(id, customer_id, subject, date, correspondence, is_printed, is_paid, positions) {
 					});
 				});
 			})
