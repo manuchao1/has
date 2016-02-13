@@ -1,8 +1,14 @@
 create_storage().then(function(storage) {
 	$(document).ready(function() {
 		$('#start').click(function() {
-			var customers = JSON.parse($('texarea#customers').val());
-			var items = JSON.parse($('texarea#items').val());
+			var customers = $('texarea#customers').val();
+			var items = $('texarea#items').val();
+
+			console.log(customers);
+			console.log(items);
+
+			var customers = JSON.parse(customers);
+			var items = JSON.parse(items);
 
 			console.log(customers);
 			console.log(items);
