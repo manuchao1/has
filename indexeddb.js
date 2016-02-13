@@ -36,9 +36,12 @@ var cursor_to_bills = function(resolve, reject, transaction, indexed_db) {
 		}
 		else {
 			console.log('get_customer_promise_list', get_customer_promise_list);
-			Promise.all(get_customer_promise_list).then(function() {
+			return Promise.all(get_customer_promise_list).then(function() {
 				console.log(bill_list);
 				resolve(bill_list);
+			}, function(args) {
+				console.error('get_customer_promise_list failed', args);
+				reject();
 			});
 		}
 	};
