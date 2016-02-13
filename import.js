@@ -49,7 +49,7 @@ create_storage().then(function(storage) {
 								price: (i.preis*100)|0,
 							};
 						});
-						var bill = new Bill(b.id, b.patient, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
+						var bill = new Bill(undefined, b.patient, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
 						storage.create_bill(bill);
 //function Bill(id, customer_id, subject, date, correspondence, is_printed, is_paid, positions) {
 					});
