@@ -26,6 +26,9 @@ SettingsForm.prototype = {
 			'bank',
 			'blz',
 			'account',
+			'addressing_male',
+			'addressing_female',
+			'addressing_child',
 		];
 
 		var settings = {};

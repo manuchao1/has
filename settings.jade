@@ -61,14 +61,29 @@ html(lang="en")
 
           h3 Sonstiges
           .form-group.row
-            label(for='retour_address').col-sm-2.form-control-label Retour-Adresse 
+            label(for='addressing_female').col-sm-2.form-control-label Weibliche Anrede
             .col-sm-8
-              input(name='retour_address').form-control
+              input(name='addressing_female').form-control
+
+          .form-group.row
+            label(for='addressing_male').col-sm-2.form-control-label Männliche Anrede
+            .col-sm-8
+              input(name='addressing_male').form-control
+
+          .form-group.row
+            label(for='addressing_child').col-sm-2.form-control-label Anrede für Kinder
+            .col-sm-8
+              input(name='addressing_child').form-control
 
           .form-group.row
             label(for='greeting').col-sm-2.form-control-label Grußwort
             .col-sm-8
               input(name='greeting').form-control
+
+          .form-group.row
+            label(for='retour_address').col-sm-2.form-control-label Retour-Adresse 
+            .col-sm-8
+              input(name='retour_address').form-control
 
           .form-group.row
             label(for='signature').col-sm-2.form-control-label Ihre Unterschrift 
