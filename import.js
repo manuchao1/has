@@ -3,12 +3,16 @@ create_storage().then(function(storage) {
 		$('#start').click(function() {
 			var customers = $('textarea#customers').val();
 			var items = $('textarea#items').val();
+			var bills = $('textarea#bills').val();
+			var billing_items = $('textarea#billing_items').val();
 
 			console.log(customers);
 			console.log(items);
 
 			var customers = JSON.parse(customers);
 			var items = JSON.parse(items);
+			var bills = JSON.parse(bills);
+			var billing_items = JSON.parse(billing_items);
 
 			console.log(customers);
 			console.log(items);
@@ -26,13 +30,29 @@ create_storage().then(function(storage) {
 				return storage.create_customer(customer);
 			});
 			Promise.all(promises).then(function() {
-				var promises = items.map(function(i) {
+				/*var promises = items.map(function(i) {
 					if (i.versteckt == 0) {
 						var item = new Item(i.id, i.ziffer, i.beschreibung, (i.preis*100)|0);
 						console.log('creating item', i.id);
 						return storage.create_item(item);
 					}
-				});
+				});*/
+				promises = [];
+				
+				Promise.all(promises).then(function() {
+					var promises = bills.map(function(b) {
+						var positions = billing_items.filter(function(i) { return i.rechnung == b.id }).map(function(i) {
+							return {
+								date: new Date(billing_items.datum),
+								number: billing_items.ziffer,
+								description: billing_items.beschreibung,
+								price: (billing_items.preis*100)|0,
+							};
+						});
+						var bill = new Bill(b.id, b.patient, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
+						console.log(bill);
+//function Bill(id, customer_id, subject, date, correspondence, is_printed, is_paid, positions) {
+					});
 			})
 		})
 	});
