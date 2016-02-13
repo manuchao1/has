@@ -53,6 +53,7 @@ create_storage().then(function(storage) {
 						console.log(bill);
 //function Bill(id, customer_id, subject, date, correspondence, is_printed, is_paid, positions) {
 					});
+				});
 			})
 		})
 	});
