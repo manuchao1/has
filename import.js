@@ -43,10 +43,10 @@ create_storage().then(function(storage) {
 					var promises = bills.map(function(b) {
 						var positions = billing_items.filter(function(i) { return i.rechnung == b.id }).map(function(i) {
 							return {
-								date: new Date(billing_items.datum),
-								number: billing_items.ziffer,
-								description: billing_items.beschreibung,
-								price: (billing_items.preis*100)|0,
+								date: new Date(i.datum),
+								number: i.ziffer,
+								description: i.beschreibung,
+								price: (i.preis*100)|0,
 							};
 						});
 						var bill = new Bill(b.id, b.patient, b.diagnose, new Date(b.rechnungsdatum), '', false, false, positions);
