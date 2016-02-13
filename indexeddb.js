@@ -35,6 +35,7 @@ var cursor_to_bills = function(resolve, reject, transaction, indexed_db) {
 			cursor.continue();
 		}
 		else {
+			console.log('get_customer_promise_list', get_customer_promise_list);
 			Promise.all(get_customer_promise_list).then(function() {
 				console.log(bill_list);
 				resolve(bill_list);
@@ -161,6 +162,7 @@ IndexedDatabase.prototype = {
 
 			var req = object_store.get(parseInt(id));
 			req.onerror = function(e) {
+				console.error('did not find customer with id', parseInt(id));
 				reject();
 				log_error(e);
 			};
