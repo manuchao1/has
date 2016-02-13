@@ -1,0 +1,77 @@
+!!! 5
+html(lang='en')
+  head
+    include head.jade
+    title Rechnung
+
+    style
+      | .select2-dropdown {
+      |   box-shadow: 5px 5px 10px #AAA;
+      | }
+
+  body
+    - var nav = 'bills'
+    include nav.jade
+
+    .container(style='padding-top: 80px;')
+      form
+        .form-group.row
+          label(for='customer').col-sm-2.form-control-label Patient
+          .col-sm-10
+            select(name='customer', autofocus).form-control
+
+        .form-group.row
+          label(for='billing_date').col-sm-2.form-control-label Datum
+          .col-sm-3
+            input(placeholder='TT.MM.JJJJ' name='billing_date', type='date').form-control
+
+        .form-group.row
+          label(for='subject').col-sm-2.form-control-label Diagnose
+          .col-sm-10
+            input(name='subject').form-control
+
+        .form-group.row
+          label(for='correspondence').col-sm-2.form-control-label Anschreiben
+          .col-sm-10
+            textarea(name='correspondence', type='date').form-control
+              | Foo bar
+
+        .form-group.row
+          .col-sm-2
+          .col-sm-10
+            .checkbox
+              label
+                input(name='is_printed', type='checkbox')
+                |  Bereits gedruckt
+
+            .checkbox
+              label
+                input(name='is_paid', type='checkbox')
+                |  Bereits bezahlt
+
+        .form-group.row
+          .col-sm-3 Datum
+          .col-sm-7 Leistung
+          .col-sm-2 Preis
+
+        .positions
+          .form-group.row.adder
+            .col-sm-3
+              input(placeholder='TT.MM.JJJJ' name='position_date', type='date').form-control
+            .col-sm-7
+              select(name='position').form-control
+                option(value='') Hinzufügen
+            .col-sm-2
+              input(name='price').form-control
+
+        .form-group.row
+          .col-sm-10(style='text-align: right;') Total
+          .col-sm-2#total € 0,00
+
+        .form-group.row
+          .col-sm-offset-8.col-sm-2
+            a.btn.btn-primary(type='submit', href='bill_list.html')#save Speichern
+ 
+    include foot.jade
+    script(src='../bill.js')
+

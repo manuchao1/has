@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="../bootstrap-4.0.0-alpha.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../select2-4.0.1/css/select2.min.css" rel="stylesheet">
+    <link href="../font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Rechnungen</title>
+    <style>table tbody tr {
+  cursor: pointer;
+}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+      <ul class="nav navbar-nav">
+        <li class="nav-item active"><a href="bill_list.html" class="nav-link">Rechnungen</a>
+        </li>
+        <li class="nav-item"><a href="customer_list.html" class="nav-link">Patienten</a>
+        </li>
+        <li class="nav-item"><a href="item_list.html" class="nav-link">Leistungen</a>
+        </li>
+        <li class="nav-item"><a href="settings.html" class="nav-link">Einstellungen</a>
+        </li>
+        <li class="nav-item print pull-xs-right">
+          <!--a.nav-link(href='print.html') Drucken --><a href="print.html" class="nav-link"><i class="fa fa-print fa-lg"></i><span class="label label-success invisible">7</span></a>
+        </li>
+      </ul>
+    </nav>
+    <div style="padding-top: 80px;" class="container">
+      <h1 style="display: inline;">Rechnungen <small class="text-muted"></small>
+      </h1><a type="button" href="bill.html" class="btn btn-primary pull-xs-right">Neue Rechnung</a>
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th>Nummer</th>
+            <th>Datum</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Betrag</th>
+            <th>Bezahlt</th>
+            <th>Gedruckt</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script src="../texlive.js/promisejs/promise.min.js"></script>
+    <script src="../texlive.js/pdftex.js"></script>
+    <script src="../promise-6.1.0.js"></script>
+    <script src="../ramda-0.19.1.min.js"></script>
+    <script src="../jquery-2.1.4.min.js"></script>
+    <script src="../select2-4.0.1/js/select2.min.js"></script>
+    <script src="../indexeddb.js"></script>
+    <!--script(src='../remotestorage-0.12.0.min.js')-->
+    <!--script(src='../remote_storage.js')-->
+    <script src="../storage.js"></script>
+    <script src="../models.js"></script>
+    <script src="../print_bills.js"></script>
+    <script src="../nav.js"></script>
+    <script src="../bill_list.js"></script>
+  </body>
+</html>

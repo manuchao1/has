@@ -1,0 +1,54 @@
+!!! 5
+html(lang="en")
+  head
+    include head.jade
+    title Patienten
+
+  body
+    - var nav = 'customers'
+    include nav.jade
+
+    .container(style='padding-top: 80px;')
+        form
+          .form-group.row
+            label(for='forename').col-sm-2.form-control-label Vorname
+            .col-sm-8
+              input(name='forename' autofocus).form-control
+
+          .form-group.row
+            label(for='surname').col-sm-2.form-control-label Nachname
+            .col-sm-8
+              input(name='surname').form-control
+
+          .form-group.row
+            .col-sm-2 Anrede
+            .col-sm-8
+              label.radio-inline
+                input(type='radio', name='gender', value='male')
+                | Herr
+              label.radio-inline
+                input(type='radio', name='gender', value='female')
+                | Frau
+              label.radio-inline
+                input(type='radio', name='gender', value='child')
+                | Kind
+
+          .form-group.row
+            label(for='street').col-sm-2.form-control-label Straße & Hausnr.
+            .col-sm-8
+              input(name='street').form-control
+
+          .form-group.row
+            label(for='zip').col-sm-2.form-control-label Ort
+            .col-sm-2
+              input(placeholder='PLZ', name='zip').form-control
+            .col-sm-6
+              input(name='city').form-control
+
+          .form-group.row
+            .col-sm-offset-2.col-sm-8
+              a.btn.btn-primary(href='customer_list.html')#save Speichern
+
+    include foot.jade
+    script(src='../customer.js')
+

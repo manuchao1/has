@@ -1,0 +1,36 @@
+nav.navbar.navbar-dark.bg-primary.navbar-fixed-top
+  ul.nav.navbar-nav
+    if nav == 'bills'
+      li.nav-item.active
+        a.nav-link(href='bill_list.html') Rechnungen
+    else:
+      li.nav-item
+        a.nav-link(href='bill_list.html') Rechnungen
+
+    if nav == 'customers'
+      li.nav-item.active
+        a.nav-link(href='customer_list.html') Patienten
+    else:
+      li.nav-item
+        a.nav-link(href='customer_list.html') Patienten
+
+    if nav == 'items'
+      li.nav-item.active
+        a.nav-link(href='item_list.html') Leistungen
+    else:
+      li.nav-item
+        a.nav-link(href='item_list.html') Leistungen
+
+    if nav == 'settings'
+      li.nav-item.active
+        a.nav-link(href='settings.html') Einstellungen
+    else:
+      li.nav-item
+        a.nav-link(href='settings.html') Einstellungen
+
+    li.nav-item.print.pull-xs-right
+      //a.nav-link(href='print.html') Drucken 
+      a.nav-link(href='print.html')
+        i.fa.fa-print.fa-lg
+        span.label.label-success.invisible 7
+

@@ -1,0 +1,32 @@
+!!! 5
+html(lang="en")
+  head
+    include head.jade
+    title Leistungen
+
+    style
+      | /*table tbody tr {
+      |   cursor: pointer;
+      | }*/
+
+  body
+    - var nav = 'items'
+    include nav.jade
+
+    .container(style='padding-top: 80px;')
+      h1(style='display: inline;')
+        | Leistungen 
+        small.text-muted
+      a(type='button', href='item.html').btn.btn-primary.pull-xs-right Neue Leistung
+
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Ziffer
+            th Beschreibung
+            th Preis
+        tbody
+
+    include foot.jade
+    script(src='../item_list.js')
+

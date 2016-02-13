@@ -1,0 +1,36 @@
+!!! 5
+html(lang="en")
+  head
+    include head.jade
+    title Rechnungen
+
+    style
+      | table tbody tr {
+      |   cursor: pointer;
+      | }
+
+  body
+    - var nav = 'bills'
+    include nav.jade
+
+    .container(style='padding-top: 80px;')
+      h1(style='display: inline;')
+        | Rechnungen 
+        small.text-muted
+      a(type='button', href='bill.html').btn.btn-primary.pull-xs-right Neue Rechnung
+
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Nummer
+            th Datum
+            th Vorname
+            th Nachname
+            th Betrag
+            th Bezahlt
+            th Gedruckt
+        tbody
+
+    include foot.jade
+    script(src='../bill_list.js')
+

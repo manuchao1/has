@@ -1,0 +1,33 @@
+!!! 5
+html(lang="en")
+  head
+    include head.jade
+    title Kunden
+
+    style
+      | table tbody tr {
+      |   cursor: pointer;
+      | }
+
+  body
+    - var nav = 'customers'
+    include nav.jade
+
+    .container(style='padding-top: 80px;')
+      h1(style='display: inline;')
+        | Patienten 
+        small.text-muted
+      a(type='button', href='customer.html').btn.btn-primary.pull-xs-right Neuer Patient
+
+      table.table.table-striped.table-hover
+        thead
+          tr
+            th Nachname
+            th Vorname
+            th PLZ
+            th Ort
+        tbody
+
+    include foot.jade
+    script(src='../customer_list.js')
+

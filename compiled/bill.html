@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href="../bootstrap-4.0.0-alpha.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../select2-4.0.1/css/select2.min.css" rel="stylesheet">
+    <link href="../font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <title>Rechnung</title>
+    <style>.select2-dropdown {
+  box-shadow: 5px 5px 10px #AAA;
+}
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-primary navbar-fixed-top">
+      <ul class="nav navbar-nav">
+        <li class="nav-item active"><a href="bill_list.html" class="nav-link">Rechnungen</a>
+        </li>
+        <li class="nav-item"><a href="customer_list.html" class="nav-link">Patienten</a>
+        </li>
+        <li class="nav-item"><a href="item_list.html" class="nav-link">Leistungen</a>
+        </li>
+        <li class="nav-item"><a href="settings.html" class="nav-link">Einstellungen</a>
+        </li>
+        <li class="nav-item print pull-xs-right">
+          <!--a.nav-link(href='print.html') Drucken --><a href="print.html" class="nav-link"><i class="fa fa-print fa-lg"></i><span class="label label-success invisible">7</span></a>
+        </li>
+      </ul>
+    </nav>
+    <div style="padding-top: 80px;" class="container">
+      <form>
+        <div class="form-group row">
+          <label for="customer" class="col-sm-2 form-control-label">Patient</label>
+          <div class="col-sm-10">
+            <select name="customer" autofocus class="form-control"></select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="billing_date" class="col-sm-2 form-control-label">Datum</label>
+          <div class="col-sm-3">
+            <input placeholder="TT.MM.JJJJ" name="billing_date" type="date" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="subject" class="col-sm-2 form-control-label">Diagnose</label>
+          <div class="col-sm-10">
+            <input name="subject" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="correspondence" class="col-sm-2 form-control-label">Anschreiben</label>
+          <div class="col-sm-10"><textarea name="correspondence" type="date" class="form-control">Foo bar</textarea>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10">
+            <div class="checkbox">
+              <label>
+                <input name="is_printed" type="checkbox"> Bereits gedruckt
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input name="is_paid" type="checkbox"> Bereits bezahlt
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-3">Datum</div>
+          <div class="col-sm-7">Leistung</div>
+          <div class="col-sm-2">Preis</div>
+        </div>
+        <div class="positions">
+          <div class="form-group row adder">
+            <div class="col-sm-3">
+              <input placeholder="TT.MM.JJJJ" name="position_date" type="date" class="form-control">
+            </div>
+            <div class="col-sm-7">
+              <select name="position" class="form-control">
+                <option value="">Hinzufügen</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+              <input name="price" class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div style="text-align: right;" class="col-sm-10">Total</div>
+          <div id="total" class="col-sm-2">€ 0,00</div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-offset-8 col-sm-2"><a type="submit" href="bill_list.html" id="save" class="btn btn-primary">Speichern</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <script src="../texlive.js/promisejs/promise.min.js"></script>
+    <script src="../texlive.js/pdftex.js"></script>
+    <script src="../promise-6.1.0.js"></script>
+    <script src="../ramda-0.19.1.min.js"></script>
+    <script src="../jquery-2.1.4.min.js"></script>
+    <script src="../select2-4.0.1/js/select2.min.js"></script>
+    <script src="../indexeddb.js"></script>
+    <!--script(src='../remotestorage-0.12.0.min.js')-->
+    <!--script(src='../remote_storage.js')-->
+    <script src="../storage.js"></script>
+    <script src="../models.js"></script>
+    <script src="../print_bills.js"></script>
+    <script src="../nav.js"></script>
+    <script src="../bill.js"></script>
+  </body>
+</html>
